@@ -1,5 +1,5 @@
 // https://adventofcode.com/2021/day/1
-System.IO.File.ReadLines "input/1.txt"
+System.IO.File.ReadLines "input/01.txt"
     |> Seq.map int
     |> Seq.windowed 3
     |> Seq.map Seq.sum
