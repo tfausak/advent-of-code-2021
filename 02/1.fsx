@@ -1,4 +1,3 @@
-// https://adventofcode.com/2021/day/2
 type Command =
     | Down of int
     | Forward of int
@@ -11,14 +10,14 @@ let parseCommand (x : string) =
     | [| "up"; n |] -> Some (Up (int n))
     | _ -> None
 
-System.IO.File.ReadLines "input/02.txt"
+System.IO.File.ReadLines "02/input.txt"
     |> Seq.choose parseCommand
     |> Seq.fold
-        (fun (h, d, a) c ->
+        (fun (h, d) c ->
             match c with
-            | Down x -> (h, d, a + x)
-            | Forward x -> (h + x, d + (x * a), a)
-            | Up x -> (h, d, a - x))
-        (0, 0, 0)
-    |> (fun (h, d, _) -> h * d)
+            | Down x -> (h, d + x)
+            | Forward x -> (h + x, d)
+            | Up x -> (h, d - x))
+        (0, 0)
+    |> (fun (h, d) -> h * d)
     |> printfn "%A"
