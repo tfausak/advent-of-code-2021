@@ -1,3 +1,4 @@
 {
-    "image": "mcr.microsoft.com/vscode/devcontainers/dotnet:6.0"
+    "image": "mcr.microsoft.com/vscode/devcontainers/dotnet:6.0",
+    "remoteUser": "vscode"
 }
